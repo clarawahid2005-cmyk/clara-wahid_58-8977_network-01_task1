@@ -1,0 +1,12 @@
+I cleaned the club signup dataset by first normalizing inconsistent values in the faculty, city, and club columns. 
+I removed extra spaces, converted values to lowercase, and mapped variants such as “Media Engineering and Technology” to MET,
+ “Alex” and “el giza” to their canonical cities, and “Soccer,” “Chess Club,” and “Debating” to the required club names. 
+ I also standardized names by removing extra spaces and using consistent capitalization, while trimming and lowercasing emails. 
+ The fee_paid column was converted from values such as yes, Y, TRUE, 1, no, N, false, and 0 into Boolean values. 
+ I then parsed the two signed_up_at formats into one datetime column. The dataset started with 39 rows. 
+ I first removed 3 exact duplicate rows, leaving 36 rows, then removed 4 older repeated student-club signups, leaving 32 rows. 
+ I kept the latest submission because it represents the student's most recent choice. 
+ I fixed club spellings before checking duplicates because this affected the results: checking before normalization found 10 rows
+involved in repeated student-club combinations, compared with 8 after normalization. 
+Finally, students with the same name were not merged because duplicates were identified using student_id and club, 
+rather than full_name.
